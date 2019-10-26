@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "746312252715",
+    "firebase_url": "https://firstip3.firebaseio.com",
+    "project_id": "firstip3",
+    "storage_bucket": "firstip3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746312252715:android:bc8485140e93feb7c3d96e",
+        "android_client_info": {
+          "package_name": "com.example.firstip3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746312252715-613353fl9ci8lavt39j7tm4qb1jligc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firstip3",
+            "certificate_hash": "ba8babedb0c6163613941604812e13d18a9367f0"
+          }
+        },
+        {
+          "client_id": "746312252715-fn0ji9nhsfc46jdvb1b17peqj4m1ennc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWeT4r-0fvqpUvVLEDt_KPW-R_sFkaY9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746312252715-fn0ji9nhsfc46jdvb1b17peqj4m1ennc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
