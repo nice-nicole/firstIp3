@@ -26,7 +26,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v){
         if(v == crAccount){
-            Intent goToMain= new Intent(LogInActivity.this, MainActivity.class);
+            Intent goToMain= new Intent(LogInActivity.this, SignUpActivity.class);
             startActivity(goToMain);
             finish();
         }
