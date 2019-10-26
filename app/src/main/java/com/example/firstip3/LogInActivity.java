@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import butterknife.BindView;
@@ -13,6 +14,8 @@ import butterknife.ButterKnife;
 public class LogInActivity extends AppCompatActivity implements View.OnClickListener {
 
     @BindView(R.id.crAcc2) TextView crAccount;
+    @BindView(R.id.loginBtn)
+    Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +24,19 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
         ButterKnife.bind(this);
         crAccount.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
         if(v == crAccount){
-            Intent goToMain= new Intent(LogInActivity.this, SignUpActivity.class);
+            Intent goToSignUp= new Intent(LogInActivity.this, SignUpActivity.class);
+            startActivity(goToSignUp);
+            finish();
+        }
+
+        if(v == loginBtn){
+            Intent goToMain = new Intent(LogInActivity.this, MainActivity.class);
             startActivity(goToMain);
             finish();
         }
