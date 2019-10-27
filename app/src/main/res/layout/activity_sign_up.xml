@@ -70,12 +70,23 @@
         android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/pass2"
-        android:text="Save"
+        android:text="create account"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:textColor="@color/colorTextColor"
         />
 
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/crAcc"
+        android:text="Already have an account?Login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorTextColor"
+        />
 
 
 </RelativeLayout>
