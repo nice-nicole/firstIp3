@@ -3,6 +3,7 @@ package com.example.firstip3;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +41,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+    private ProgressDialog progDialogAuth;
+
+    private String personName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +57,18 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         authProtocol = FirebaseAuth.getInstance();
         signUpAuthStateListener();
 
+        progressDialogFeature();
+
     }
+
+    private void progressDialogFeature(){
+        progDialogAuth = new ProgressDialog(this);
+        progDialogAuth.setTitle("Wait....");
+        progDialogAuth.setMessage("Authentification avec firebase...");
+        progDialogAuth.setCancelable(false);
+
+    }
+
 
     private void signUpAuthStateListener(){
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -101,26 +118,48 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
     private void register() {
+
+        personName = name.getText().toString().trim();
+
         final String newName = name.getText().toString().trim();
         final String newEmail = email2.getText().toString().trim();
         String newPassword = pass2.getText().toString().trim();
         String newConfirmPassword = confPass.getText().toString().trim();
 
         boolean vraiEmail= emailCredential(newEmail);
-        boolean vraiName= nameCredential(newName);
+        boolean vraiName= nameCredential(personName);
         boolean vraiPassword= passwordCredential(newPassword, newConfirmPassword);
 
         if(!vraiEmail || !vraiName || !vraiPassword) return;
+        progDialogAuth.show();
 
         authProtocol.createUserWithEmailAndPassword(newEmail, newPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        progDialogAuth.dismiss();
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
+                            viewUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void viewUserProfile(final FirebaseUser person){
+        UserProfileChangeRequest addUserName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(personName)
+                .build();
+
+        person.updateProfile(addUserName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Log.d(TAG, person.getDisplayName());
                         }
                     }
                 });
