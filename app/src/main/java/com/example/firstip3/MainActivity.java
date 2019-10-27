@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
                 FirebaseUser person = firebaseAuth.getCurrentUser();
                 if(person != null ){
-                getSupportActionBar().setTitle("Dear " + person.getDisplayName() + ", Thank you for joining our community!...");
+                getSupportActionBar().setTitle("Hello " + person.getDisplayName() + "..");
                 }
             }
         };
