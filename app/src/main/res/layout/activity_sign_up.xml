@@ -23,7 +23,7 @@
         android:text="Create an account"
         android:textSize="35sp"
         android:textColor="@color/colorTextColor"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:paddingRight="20dp"
         android:paddingLeft="50dp"
@@ -48,7 +48,7 @@
         android:inputType="textEmailAddress"
         android:hint="Email-adress"
         android:textColor="@color/colorTextColor"
-        android:layout_below="@id/txt2"
+        android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
 
@@ -98,7 +98,7 @@
         android:layout_below="@id/crAcc"
         android:text="Already have an account?Login"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:textColor="@color/colorTextColor"
         />
 
