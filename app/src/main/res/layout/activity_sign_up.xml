@@ -65,11 +65,25 @@
         android:paddingLeft="20dp"
         android:layout_marginTop="30dp"/>
 
+
+    <EditText
+        android:id="@+id/confPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="confirm password"
+        android:textColor="@color/colorTextColor"
+        android:layout_below="@id/pass2"
+        android:layout_centerHorizontal="true"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="30dp"/>
+
     <Button
         android:id="@+id/crAcc"
         android:layout_width="135dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pass2"
+        android:layout_below="@id/confPass"
         android:text="create account"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
