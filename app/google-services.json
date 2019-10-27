@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "746312252715",
-    "firebase_url": "https://firstip3.firebaseio.com",
-    "project_id": "firstip3",
-    "storage_bucket": "firstip3.appspot.com"
+    "project_number": "665761089928",
+    "firebase_url": "https://ip345-66de2.firebaseio.com",
+    "project_id": "ip345-66de2",
+    "storage_bucket": "ip345-66de2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:746312252715:android:bc8485140e93feb7c3d96e",
+        "mobilesdk_app_id": "1:665761089928:android:502b9ff199c6abfaf8123d",
         "android_client_info": {
           "package_name": "com.example.firstip3"
         }
       },
       "oauth_client": [
         {
-          "client_id": "746312252715-613353fl9ci8lavt39j7tm4qb1jligc1.apps.googleusercontent.com",
+          "client_id": "665761089928-tlfoor5tu4aedjpoc7l5beutuihfnvp7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.firstip3",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "746312252715-fn0ji9nhsfc46jdvb1b17peqj4m1ennc.apps.googleusercontent.com",
+          "client_id": "665761089928-c1862qa5nlu37mqqqab4on9pepca7a1l.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBWeT4r-0fvqpUvVLEDt_KPW-R_sFkaY9I"
+          "current_key": "AIzaSyDT7zaFdV204B082hoAEOaVeJBmy8Y5z_c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "746312252715-fn0ji9nhsfc46jdvb1b17peqj4m1ennc.apps.googleusercontent.com",
+              "client_id": "665761089928-c1862qa5nlu37mqqqab4on9pepca7a1l.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

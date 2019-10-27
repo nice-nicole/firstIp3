@@ -36,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     public static final String TAG= SignUpActivity.class.getSimpleName();
 
-
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,33 +47,44 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         crAcc.setOnClickListener(this);
         log.setOnClickListener(this);
 
-        createAuthStateListener();
+        authProtocol = FirebaseAuth.getInstance();
+        signUpAuthStateListener();
+
     }
 
+    private void signUpAuthStateListener(){
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+        };
+    }
 
     private void register() {
         final String newName = name.getText().toString().trim();
-        final String newEmail2 = email2.getText().toString().trim();
-        final String newPass2 = pass2.getText().toString().trim();
-        final String newConfPass = confPass.getText().toString().trim();
+        final String newEmail = email2.getText().toString().trim();
+        String newPassword = pass2.getText().toString().trim();
+        String newConfirmPassword = confPass.getText().toString().trim();
 
-        authProtocol.createUserWithEmailAndPassword(newEmail2, newPass2)
+        authProtocol.createUserWithEmailAndPassword(newEmail, newPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-
+                            Log.d(TAG, "Authentication successful");
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-
                         }
-
-                        // ...
                     }
                 });
     }
@@ -90,6 +101,21 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             goToLogin.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(goToLogin);
             finish();
+        }
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        authProtocol.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            authProtocol.removeAuthStateListener(mAuthListener);
         }
     }
 }
