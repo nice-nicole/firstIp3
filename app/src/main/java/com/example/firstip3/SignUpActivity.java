@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,11 +70,47 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         };
     }
 
+    private boolean emailCredential(String addrEmail){
+        boolean isEmailValid = (addrEmail != null && Patterns.EMAIL_ADDRESS.matcher(addrEmail).matches());
+        if(!isEmailValid){
+            email2.setError("the email is invalid");
+            return false;
+        }
+        return isEmailValid;
+    }
+
+    private boolean nameCredential(String username){
+        if(username.equals("")){
+            name.setError("name can't be empty");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean passwordCredential(String password, String confirmPassword){
+        if(password.length()<6){
+            pass2.setError("password must have more than 6 characters");
+            return false;
+
+        }else if(!password.equals(confirmPassword)){
+            pass2.setError("passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
+
     private void register() {
         final String newName = name.getText().toString().trim();
         final String newEmail = email2.getText().toString().trim();
         String newPassword = pass2.getText().toString().trim();
         String newConfirmPassword = confPass.getText().toString().trim();
+
+        boolean vraiEmail= emailCredential(newEmail);
+        boolean vraiName= nameCredential(newName);
+        boolean vraiPassword= passwordCredential(newPassword, newConfirmPassword);
+
+        if(!vraiEmail || !vraiName || !vraiPassword) return;
 
         authProtocol.createUserWithEmailAndPassword(newEmail, newPassword)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
