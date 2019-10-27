@@ -8,21 +8,21 @@ public class MyNewsArrayAdapter extends ArrayAdapter {
     private String[] mNews;
     private String[] mCuisines;
 
-    public MyRestaurantsArrayAdapter( Context mContext, int resource, String[] mRestaurants, String[] mCuisines) {
+    public MyNewsArrayAdapter( Context mContext, int resource, String[] mNews) {
         super(mContext, resource);
         this.mContext = mContext;
-        this.mRestaurants = mRestaurants;
-        this.mCuisines = mCuisines;
+        this.mNews = mNews;
+
     }
 
     @Override
     public int getCount() {
-        return mRestaurants.length;
+        return mNews.length;
     }
 
     @Override
     public Object getItem(int position) {
-        String restaurant = mRestaurants[position];
+        String restaurant = mNews[position];
         String cuisine = mCuisines[position];
         return String.format("%s \n Serves great: %s", restaurant, cuisine);
     }
