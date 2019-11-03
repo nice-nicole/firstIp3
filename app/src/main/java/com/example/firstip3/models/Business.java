@@ -5,56 +5,60 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
+
 public class Business {
 
     @SerializedName("id")
     @Expose
-    private String id;
+    public String id;
     @SerializedName("alias")
     @Expose
-    private String alias;
+    public String alias;
     @SerializedName("name")
     @Expose
-    private String name;
+    public String name;
     @SerializedName("image_url")
     @Expose
-    private String imageUrl;
+    public String imageUrl;
     @SerializedName("is_closed")
     @Expose
-    private Boolean isClosed;
+    public Boolean isClosed;
     @SerializedName("url")
     @Expose
-    private String url;
+    public String url;
     @SerializedName("review_count")
     @Expose
-    private Integer reviewCount;
+    public Integer reviewCount;
     @SerializedName("categories")
     @Expose
-    private List<Category> categories = null;
+    public List<Category> categories = null;
     @SerializedName("rating")
     @Expose
-    private Double rating;
+    public Double rating;
     @SerializedName("coordinates")
     @Expose
-    private Coordinates coordinates;
+    public Coordinates coordinates;
     @SerializedName("transactions")
     @Expose
-    private List<String> transactions = null;
+    public List<String> transactions = null;
     @SerializedName("price")
     @Expose
-    private String price;
+    public String price;
     @SerializedName("location")
     @Expose
-    private Location location;
+    public Location location;
     @SerializedName("phone")
     @Expose
-    private String phone;
+    public String phone;
     @SerializedName("display_phone")
     @Expose
-    private String displayPhone;
+    public String displayPhone;
     @SerializedName("distance")
     @Expose
-    private Double distance;
+    public Double distance;
 
     /**
      * No args constructor for use in serialization

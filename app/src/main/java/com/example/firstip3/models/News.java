@@ -1,7 +1,11 @@
 package com.example.firstip3.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 import java.util.List;
+
+@Parcel
 
 public class News {
 

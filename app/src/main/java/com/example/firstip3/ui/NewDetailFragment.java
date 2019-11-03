@@ -33,8 +33,8 @@ import butterknife.ButterKnife;
 
 
 public class NewDetailFragment extends Fragment implements View.OnClickListener {
-    @BindView(R.id.newImageView)
-    ImageView mImageLabel;
+//    @BindView(R.id.newImageView)
+//    ImageView mImageLabel;
     @BindView(R.id.newNameTextView)
     TextView mNameLabel;
     @BindView(R.id.moreTextView)
@@ -57,11 +57,11 @@ public class NewDetailFragment extends Fragment implements View.OnClickListener 
     }
 
     public static NewDetailFragment newInstance(Business newss) {
-        NewDetailFragment restaurantDetailFragment = new NewDetailFragment();
+        NewDetailFragment newDetailFragment = new NewDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("newss", Parcels.wrap(newss));
-        restaurantDetailFragment.setArguments(args);
-        return restaurantDetailFragment;
+        newDetailFragment.setArguments(args);
+        return newDetailFragment;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class NewDetailFragment extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_new_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.get().load(mNew.getImageUrl()).into(mImageLabel);
+//        Picasso.get().load(mNew.getImageUrl()).into(mImageLabel);
 
         List<String> categories = new ArrayList<>();
 
@@ -116,7 +116,6 @@ public class NewDetailFragment extends Fragment implements View.OnClickListener 
                             + "?q=(" + mNew.getName() + ")"));
             startActivity(mapIntent);
         }
-
         if (v == mSaveNewsButton) {
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
@@ -124,5 +123,6 @@ public class NewDetailFragment extends Fragment implements View.OnClickListener 
             restaurantRef.push().setValue(mNew);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
+
     }
 }

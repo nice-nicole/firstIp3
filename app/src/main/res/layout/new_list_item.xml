@@ -3,12 +3,12 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="130dp"
-        android:layout_height="100dp"
-        android:id="@+id/newImageView"
-        android:src="@drawable/waffles"
-        android:scaleType="centerCrop"/>
+<!--    <ImageView-->
+<!--        android:layout_width="130dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:id="@+id/newImageView"-->
+<!--        android:src="@drawable/waffles"-->
+<!--        android:scaleType="centerCrop"/>-->
 
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:id="@+id/newNameTextView"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Restaurant Name"
+            android:text="News Title"
             android:textColor="@color/colorPrimary"/>
 
         <TextView

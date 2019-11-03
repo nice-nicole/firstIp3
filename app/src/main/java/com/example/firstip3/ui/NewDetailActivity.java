@@ -29,7 +29,7 @@ public class NewDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_detail);
         ButterKnife.bind(this);
 
-        mNews= Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
+        mNews= Parcels.unwrap(getIntent().getParcelableExtra("news"));
         int startingPosition = getIntent().getIntExtra("position",0);
 
         adapterViewPager = new NewPagerAdapter(getSupportFragmentManager(), mNews);

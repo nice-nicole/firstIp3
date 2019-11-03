@@ -5,32 +5,36 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
+
 public class Location {
 
     @SerializedName("address1")
     @Expose
-    private String address1;
+    public String address1;
     @SerializedName("address2")
     @Expose
-    private String address2;
+    public String address2;
     @SerializedName("address3")
     @Expose
-    private Object address3;
+    public String address3;
     @SerializedName("city")
     @Expose
-    private String city;
+    public String city;
     @SerializedName("zip_code")
     @Expose
-    private String zipCode;
+    public String zipCode;
     @SerializedName("country")
     @Expose
-    private String country;
+    public String country;
     @SerializedName("state")
     @Expose
-    private String state;
+    public String state;
     @SerializedName("display_address")
     @Expose
-    private List<String> displayAddress = null;
+    public List<String> displayAddress = null;
 
     /**
      * No args constructor for use in serialization
@@ -50,7 +54,7 @@ public class Location {
      * @param displayAddress
      * @param state
      */
-    public Location(String address1, String address2, Object address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
+    public Location(String address1, String address2, String address3, String city, String zipCode, String country, String state, List<String> displayAddress) {
         super();
         this.address1 = address1;
         this.address2 = address2;
@@ -78,11 +82,11 @@ public class Location {
         this.address2 = address2;
     }
 
-    public Object getAddress3() {
+    public String getAddress3() {
         return address3;
     }
 
-    public void setAddress3(Object address3) {
+    public void setAddress3(String address3) {
         this.address3 = address3;
     }
 

@@ -10,12 +10,15 @@ tools:context=".ui.NewDetailFragment">
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:id="@+id/newImageView"
-        android:src="@drawable/waffles"
-        android:scaleType="centerCrop" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+
+<!--        android:layout_height="180dp"-->
+<!--        android:text="More details on news category you selected"-->
+<!--        />-->
+
+<!--        android:scaleType="centerCrop" />-->
+<!--    android:id="@+id/newImageView"-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -71,7 +74,7 @@ tools:context=".ui.NewDetailFragment">
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_above="@+id/saveNewButton"
+            android:layout_above="@+id/saveNewsButton"
             android:paddingLeft="30dp"
             android:paddingTop="20dp"
             android:paddingRight="30dp">
